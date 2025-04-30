@@ -7,6 +7,7 @@ const App = () => {
   const [newName, setNewName] = useState('')
   const [newNumber, setNewNumber] = useState('')
   const [newFilter, setNewFilter] = useState('')
+  const [message, setMessage] = useState({content:'Lorem Ipsum', class:'inActive'})
 
   useEffect(() => {
     personService
@@ -31,6 +32,10 @@ const App = () => {
             setPersons(persons.map(p => p.id === existingContact.id ? response.data : p))
             setNewName('')
             setNewNumber('')
+            setMessage({content:`${newPerson.name} updated`, class:'success'})
+            setTimeout(() => {
+              setMessage({content:`${newPerson.name} updated`, class:'inActive'})
+            },5000)
           })
       }
     } else {
@@ -40,6 +45,10 @@ const App = () => {
           setPersons(persons.concat(response.data))
           setNewName('')
           setNewNumber('')
+          setMessage({content:`Added ${newPerson.name}`, class:'success'})
+          setTimeout(() => {
+            setMessage({content:`Added ${newPerson.name}`, class:'inActive'})
+          },5000)
         })
     }
   }
@@ -52,9 +61,10 @@ const App = () => {
           setPersons(persons.filter(p => p.id !== target.id))
         })
         .catch(error => {
-          alert(
-            `The contact '${target.name}' has already been deleted from the server`
-          )
+          setMessage({content:`The contact '${target.name}' has already been deleted from the server`, class:'error'})
+          setTimeout(() => {
+            setMessage({content:`The contact '${target.name}' has already been deleted from the server`, class:'inActive'})
+          },5000)
           setPersons(persons.filter(p => p.id !== target.id))
         })
     }
@@ -77,6 +87,7 @@ const App = () => {
   return (
     <div>
       <h2>Phonebook</h2>
+      <Notification message={message}/>
       <Filter inputVal={newFilter} handleInputChange={handleInputChange}/>
       <h3>Add new contact</h3>
       <PersonForm name={newName} number={newNumber} onSubmit={addContact} handleInputChange={handleInputChange}/>
@@ -128,6 +139,14 @@ const PersonForm = ({name, number, onSubmit, handleInputChange}) => {
         <button type="submit">add</button>
       </div>
     </form>
+  )
+}
+
+const Notification = ({message}) => {
+  return (
+    <div className={`notification ${message.class}`}>
+      <p>{message.content}</p>
+    </div>
   )
 }
 
