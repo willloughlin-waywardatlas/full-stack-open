@@ -7,7 +7,7 @@ const App = () => {
   const [newName, setNewName] = useState('')
   const [newNumber, setNewNumber] = useState('')
   const [newFilter, setNewFilter] = useState('')
-  const [message, setMessage] = useState({content:'Lorem Ipsum', class:'inActive'})
+  const [message, setMessage] = useState({content:'-', class:'inActive'})
 
   useEffect(() => {
     personService
