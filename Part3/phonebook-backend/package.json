@@ -1,0 +1,23 @@
+{
+  "name": "phonebook-backend",
+  "version": "1.0.0",
+  "description": "backend exercises for part 3",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/willloughlin-waywardatlas/full-stack-open.git"
+  },
+  "author": "Will Loughlin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/willloughlin-waywardatlas/full-stack-open/issues"
+  },
+  "homepage": "https://github.com/willloughlin-waywardatlas/full-stack-open#readme",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
