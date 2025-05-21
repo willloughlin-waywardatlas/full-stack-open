@@ -1,8 +1,9 @@
 # Fullstack open exercises
 
-This repository contains the completed exercises for the majority* of exercises undertaken so far.
+This repository contains the completed exercises for part 0 - 3 of the fullstack open course.
 
 ## * Repository exceptions
-The exercises for part 3 can be found in a different repo at the below URL, this was seperated for ease of deployment when using the onrender platform.
+The exercises for the following parts have been split into the repositories linked to below.
 
 Part 3: https://github.com/willloughlin-waywardatlas/fs-phonebook
+Part 4: https://github.com/willloughlin-waywardatlas/bloglist
